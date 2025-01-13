@@ -21,3 +21,14 @@ textarea {
   --primary-color: #238636;
   --secondary-color: #484f58;
 }
+
+
+// Utility classes
+
+.hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
