@@ -8,7 +8,7 @@ const itemList = document.querySelector("ul");
 // Add element to the page
 
 function addItemToUI(item){
-
+  console.log(item);
   // Create list element items
 
   const li = document.createElement('li');
@@ -17,7 +17,7 @@ function addItemToUI(item){
   const circleFilled = document.createElement('i');
   circleFilled.classList.add('fa-solid','fa-circle', 'hidden');
   const xMark = document.createElement('i');
-  xMark.classList.add('fa-solid', 'fa-xmark');
+  xMark.classList.add('fa-solid', 'fa-xmark', 'delete');
   li.append(circle);
   li.append(circleFilled)
   li.append(` ${item}`);
@@ -31,6 +31,10 @@ function addItemToUI(item){
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const item = itemInput.value;
-  addItemToUI(item);
+  const item = itemInput.value.trim();
+
+  // Check if the value an empty string
+  if(item){
+    addItemToUI(item);
+  }
 });

@@ -32,7 +32,7 @@ textarea {
 main {
   width: 95%;
   max-width: 500px;
-  margin: 100px auto;
+  margin: 50px auto;
   padding: 1rem;
   border-radius: 0.5em;
   flex-grow: 1;
@@ -94,6 +94,7 @@ input[type='text']:last-child {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   margin-top: 10px;
+  font-size: 16px;
 }
 
 input[type='submit']{
@@ -120,10 +121,41 @@ input:focus-visible {
 }
 
 
-// Utility classes
+ul {
+  list-style: none;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-.hidden {
-  display: none;
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+}
+
+li:nth-child(even) {
+/*  border: 1px solid var(--secondary-color);*/
+  background-color: var(--foreground-color);
+  border-radius: 0.3em;
+}
+
+
+/* Utility classes*/
+
+i:hover {
+  cursor: pointer;
+}
+
+.circle {
+  font-size: 16px;
+}
+
+.delete {
+  margin-left: auto;
+  color: #da3633;
 }
 
 .hidden {
