@@ -134,12 +134,35 @@ li {
   align-items: center;
   gap: 10px;
   padding: 5px 10px;
+  position: relative;
 }
 
 li:nth-child(even) {
 /*  border: 1px solid var(--secondary-color);*/
   background-color: var(--foreground-color);
   border-radius: 0.3em;
+}
+
+
+
+li:after {
+  content: "";
+  width: 0;
+  display: block;
+  height: 2px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  transition: all 0.3s;
+}
+
+li.completed::after {
+  content: "";
+  display: block;
+  width: 85%;
+  height: 2px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  left: 30px;
 }
 
 
@@ -161,3 +184,8 @@ i:hover {
 .hidden {
   display: none;
 }
+
+.completed {
+  color: #777;
+}
+

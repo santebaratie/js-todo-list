@@ -8,12 +8,14 @@ const itemList = document.querySelector("ul");
 // Add element to the page
 
 function addItemToUI(item){
-  console.log(item);
   // Create list element items
 
   const li = document.createElement('li');
   const circle = document.createElement('i');
   circle.classList.add('fa-regular', 'fa-circle');
+  circle.addEventListener("click", (e) => {
+    circle.parentElement.classList.toggle('completed');
+  })
   const circleFilled = document.createElement('i');
   circleFilled.classList.add('fa-solid','fa-circle', 'hidden');
   const xMark = document.createElement('i');
