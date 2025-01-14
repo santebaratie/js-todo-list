@@ -46,6 +46,9 @@ submitBtn.addEventListener("click", (e) => {
 
 itemList.addEventListener("click", (e) => {
    if(e.target.classList.contains('delete')){
-    e.target.parentElement.remove();
+    e.target.parentElement.classList.add('fall');
+    e.target.parentElement.addEventListener("animationend", () => {
+       e.target.parentElement.remove();
+    })
    }
 })

@@ -94,6 +94,7 @@ input[type='text']:last-child {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   margin-top: 10px;
+  margin-bottom: 30px;
   font-size: 16px;
 }
 
@@ -135,14 +136,10 @@ li {
   gap: 10px;
   padding: 5px 10px;
   position: relative;
-}
-
-li:nth-child(even) {
-/*  border: 1px solid var(--secondary-color);*/
-  background-color: var(--foreground-color);
+  transform-origin: left;
+  border: 1px solid var(--secondary-color);
   border-radius: 0.3em;
 }
-
 
 
 li:after {
@@ -189,3 +186,19 @@ i:hover {
   color: #777;
 }
 
+
+.fall {
+  animation: fall 0.3s ease;
+}
+
+
+@keyframes fall {
+  from {
+    rotate: 0;
+    opacity: 1;
+  }
+  to {
+    rotate: 7deg;
+    opacity: 0;
+  }
+}
