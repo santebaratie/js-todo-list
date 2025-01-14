@@ -38,3 +38,12 @@ submitBtn.addEventListener("click", (e) => {
     addItemToUI(item);
   }
 });
+
+
+// Remove element from the page
+
+itemList.addEventListener("click", (e) => {
+   if(e.target.classList.contains('delete')){
+    e.target.parentElement.remove();
+   }
+})
