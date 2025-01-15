@@ -5,6 +5,7 @@
 const submitBtn = document.querySelector("input[type='submit'");
 const itemInput = document.querySelector("input[type='text']:first-child");
 const itemList = document.querySelector("ul");
+const filterInput = document.querySelector(".search-input");
 
 // Add element to the page
 
@@ -101,3 +102,25 @@ function loadItemsToThePage(){
 window.addEventListener("DOMContentLoaded", (e) => {
   loadItemsToThePage();
 })
+
+
+// Filter items feature
+
+function filterItems(){
+  const items = getLocalStorageItems();
+  const filteredItems = items.filter((item) => {
+    return item.includes(filterInput.value);
+  });
+  itemList.innerHTML = '';
+  for(const item of filteredItems){
+    addItemToUI(item);
+  }
+}
+
+filterInput.addEventListener('input', (e) => {
+  filterItems();
+});
+
+
+
+
