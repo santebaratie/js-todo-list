@@ -77,6 +77,7 @@ a:active {
 .form div {
   display: flex;
 }
+
 input[type='text'] {
   width: 80%;
   background-color: transparent;
@@ -145,6 +146,7 @@ li {
 li:after {
   content: "";
   width: 0;
+  left: 30px;
   display: block;
   height: 2px;
   background-color: var(--secondary-color);

@@ -1,4 +1,5 @@
 "use strict";
+
 // Select UI elements
 
 const submitBtn = document.querySelector("input[type='submit'");
@@ -8,6 +9,7 @@ const itemList = document.querySelector("ul");
 // Add element to the page
 
 function addItemToUI(item){
+
   // Create list element items
 
   const li = document.createElement('li');
@@ -15,7 +17,7 @@ function addItemToUI(item){
   circle.classList.add('fa-regular', 'fa-circle');
   circle.addEventListener("click", (e) => {
     circle.parentElement.classList.toggle('completed');
-  })
+  });
   const circleFilled = document.createElement('i');
   circleFilled.classList.add('fa-solid','fa-circle', 'hidden');
   const xMark = document.createElement('i');
@@ -36,10 +38,33 @@ submitBtn.addEventListener("click", (e) => {
   const item = itemInput.value.trim();
 
   // Check if the value an empty string
+
   if(item){
     addItemToUI(item);
+    saveItemToLocalStorage(item);
   }
 });
+
+
+// A function to add an element to the local storage 
+
+function saveItemToLocalStorage(item){
+  const items = getLocalStorageItems();
+  items.push(item);
+  localStorage.setItem('items', JSON.stringify(items));
+}
+
+// A function to retrieve items from the local storage
+
+function getLocalStorageItems(){
+  let items = localStorage.getItem('items');
+  if (items === null) {
+    items = [];
+    return items;
+  } else {
+    return JSON.parse(items);
+  }
+}
 
 
 // Remove element from the page
@@ -51,4 +76,22 @@ itemList.addEventListener("click", (e) => {
        e.target.parentElement.remove();
     })
    }
+})
+
+
+// A function that loads items from local storage and add to the page
+
+function loadItemsToThePage(){
+  itemList.innerHTML = '';
+  const items = getLocalStorageItems();
+  for(const item of items){
+    addItemToUI(item);
+  }
+}
+
+
+// Load items from the local storage when page loaded
+
+window.addEventListener("DOMContentLoaded", (e) => {
+  loadItemsToThePage();
 })
