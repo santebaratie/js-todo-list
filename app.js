@@ -6,6 +6,7 @@ const submitBtn = document.querySelector("input[type='submit'");
 const itemInput = document.querySelector("input[type='text']:first-child");
 const itemList = document.querySelector("ul");
 const filterInput = document.querySelector(".search-input");
+const clearBtn = document.querySelector(".clear-btn");
 
 // Add element to the page
 
@@ -40,6 +41,7 @@ submitBtn.addEventListener("click", (e) => {
   if(item){
     addItemToUI(item);
     saveItemToLocalStorage(item);
+    checkUI();
   }
 });
 
@@ -73,6 +75,7 @@ itemList.addEventListener("click", (e) => {
     e.target.parentElement.addEventListener("animationend", () => {
       removeItemFromLocalStorage(e.target.previousSibling.textContent.trim());
       e.target.parentElement.remove();
+      checkUI();
     })
    }
 })
@@ -101,6 +104,7 @@ function loadItemsToThePage(){
 
 window.addEventListener("DOMContentLoaded", (e) => {
   loadItemsToThePage();
+  checkUI();
 })
 
 
@@ -122,5 +126,24 @@ filterInput.addEventListener('input', (e) => {
 });
 
 
+// Hide the filter input when the list empty
 
+function checkUI(){
+  const items = getLocalStorageItems();
+  if(items.length >= 2){
+    clearBtn.classList.remove('hidden');
+    filterInput.classList.remove('hidden');
+  } else {
+    clearBtn.classList.add('hidden');
+    filterInput.classList.add('hidden');
+  }
+}
+
+
+// Clear the list when 'clear list' button clicked
+clearBtn.addEventListener("click", () => {
+  itemList.innerHTML = '';
+  localStorage.removeItem('items');
+  checkUI();
+})
 
