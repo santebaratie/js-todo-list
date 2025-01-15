@@ -28,16 +28,24 @@ textarea {
   --text-color: #efefef;
 }
 
+img {
+  width: 100%;
+}
+
 
 main {
   width: 95%;
   max-width: 500px;
   margin: 50px auto;
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+
+.form {
+  border: 1px solid var(--secondary-color);
   padding: 1rem;
   border-radius: 0.5em;
-  flex-grow: 1;
-  border: 1px solid var(--secondary-color);
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 footer {
@@ -49,10 +57,10 @@ footer {
 
 .wrapper {
   margin: 0 auto;
-  width: 95%;
+  width: max-content;
   max-width: 500px;
   border: 1px solid var(--secondary-color);
-  padding: 10px 0;
+  padding: 10px 30px;
   border-radius: 0.5em;
 }
 
@@ -90,22 +98,29 @@ input[type='text'] {
 
 input[type='text']:last-child {
   border: none;
-  border-bottom: 1px solid var(--secondary-color);
-  border-top-left-radius: 0.3em;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  border-bottom: 1px solid #1f6feb;
+  border-top: 1px solid #1f6feb;
+  border-radius: 0;
   margin-top: 10px;
-  margin-bottom: 30px;
-  font-size: 16px;
+  font-size: 14px;
+  margin-right: auto;
+  background-color: #1f6feb44;
 }
+
 
 input[type='submit']{
   background-color: var(--primary-color);
   border: none;
   border-radius: 0.3em;
-  padding: 0 14px;
+  padding: 7px 10px;
   color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-left: 10px;
+  font-size: 12px;
+  align-self: center;
 }
+
 input[type='submit']:hover {
   cursor: pointer;
   background-color: #238636dd;
@@ -113,15 +128,13 @@ input[type='submit']:hover {
 
 input {
   display: block;
-  margin: 0 auto;
   margin-bottom: 10px;
-}
-
-input:focus-visible {
-  background-color: var(--foreground-color);
   outline: none;
 }
 
+.input-focus:focus {
+  border: 1px solid #1f6feb;
+}
 
 ul {
   list-style: none;
@@ -203,4 +216,20 @@ i:hover {
     rotate: 7deg;
     opacity: 0;
   }
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.logo-img {
+  width: 32px;
+  background-color: red;
+  display: flex;
+  border-radius: 50%;
+  overflow: hidden;
 }
