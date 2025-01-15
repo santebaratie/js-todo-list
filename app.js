@@ -18,12 +18,9 @@ function addItemToUI(item){
   circle.addEventListener("click", (e) => {
     circle.parentElement.classList.toggle('completed');
   });
-  const circleFilled = document.createElement('i');
-  circleFilled.classList.add('fa-solid','fa-circle', 'hidden');
   const xMark = document.createElement('i');
   xMark.classList.add('fa-solid', 'fa-xmark', 'delete');
   li.append(circle);
-  li.append(circleFilled)
   li.append(` ${item}`);
   li.append(xMark)
   itemList.append(li);
@@ -73,11 +70,20 @@ itemList.addEventListener("click", (e) => {
    if(e.target.classList.contains('delete')){
     e.target.parentElement.classList.add('fall');
     e.target.parentElement.addEventListener("animationend", () => {
-       e.target.parentElement.remove();
+      removeItemFromLocalStorage(e.target.previousSibling.textContent.trim());
+      e.target.parentElement.remove();
     })
    }
 })
 
+// A function to remove element from the local storage
+
+function removeItemFromLocalStorage(item){
+  const items = getLocalStorageItems();
+  const index = items.indexOf(item);
+  items.splice(index, 1);
+  localStorage.setItem('items', JSON.stringify(items));
+}
 
 // A function that loads items from local storage and add to the page
 
