@@ -7,6 +7,7 @@ const itemInput = document.querySelector("input[type='text']:first-child");
 const itemList = document.querySelector("ul");
 const filterInput = document.querySelector(".search-input");
 const clearBtn = document.querySelector(".clear-btn");
+const form = document.querySelector(".form");
 
 // Add element to the page
 
@@ -132,11 +133,14 @@ function checkUI(){
   const items = getLocalStorageItems();
   if(items.length >= 2){
     clearBtn.classList.remove('hidden');
+    form.classList.add('border');
     filterInput.classList.remove('hidden');
   } else {
+    form.classList.remove('border');
     clearBtn.classList.add('hidden');
     filterInput.classList.add('hidden');
   }
+
 }
 
 

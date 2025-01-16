@@ -42,7 +42,6 @@ main {
 }
 
 .form {
-  border: 1px solid var(--secondary-color);
   padding: 1rem;
   border-radius: 0.5em;
   margin-bottom: 1rem;
@@ -179,6 +178,10 @@ li.completed::after {
 
 
 /* Utility classes*/
+
+.border {
+  border: 1px solid var(--secondary-color);
+}
 
 i:hover {
   cursor: pointer;
